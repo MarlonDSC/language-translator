@@ -2171,6 +2171,11 @@ namespace MeedCompy
 
         }
 
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         private void AnalisisSintactico(object sender, EventArgs e)
         {
 

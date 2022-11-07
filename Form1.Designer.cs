@@ -102,7 +102,6 @@
             this.panel4.Controls.Add(this.tabControlResults);
             this.panel4.Controls.Add(this.tabControlLanguages);
             this.panel4.Controls.Add(this.richRepetir);
-            this.panel4.Controls.Add(this.pictureBox8);
             this.panel4.Controls.Add(this.richSi);
             this.panel4.Location = new System.Drawing.Point(-4, 34);
             this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -535,7 +534,7 @@
             this.pictureBox8.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox8.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox8.Image = global::MeedCompy.Properties.Resources.C__logo;
-            this.pictureBox8.Location = new System.Drawing.Point(1255, -1);
+            this.pictureBox8.Location = new System.Drawing.Point(182, 53);
             this.pictureBox8.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(47, 41);
@@ -577,6 +576,7 @@
             this.VariableAnalyzer.Controls.Add(this.label1);
             this.VariableAnalyzer.Controls.Add(this.varcadasig);
             this.VariableAnalyzer.Controls.Add(this.label11);
+            this.VariableAnalyzer.Controls.Add(this.pictureBox8);
             this.VariableAnalyzer.Controls.Add(this.varnumasig);
             this.VariableAnalyzer.Controls.Add(this.label8);
             this.VariableAnalyzer.Controls.Add(this.label10);

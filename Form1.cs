@@ -264,25 +264,16 @@ namespace MeedCompy
                     concatenatext += " " + word;
 
 
-                    if (word == "amonos" |
+                    if (word == "Main" |
 
-                      word == "si" |
-                      word == "escribir" |
+                      word == "if" |
+                      word == "Console.WriteLine" |
 
-
-                      word == "solo" |
+                      word == "==" |
                       word == "" |
-
-                      word == "repetir")
+                      word == "for")
 
                     {
-
-
-                        
-
-
-
-
                         if (word != "")
                         {
                             //se jodio
@@ -299,29 +290,29 @@ namespace MeedCompy
 
 
                     }
-                    else if (word.ToLower() == "sino")
+                    else if (word.ToLower() == "else if")
                     {
-                        tipo = "sino"; AnalalisisSintactico(word, tipo); traducir(word, tipo); sintactica(word, tipo); cierres(word, tipo); Repetir(word, tipo);
+                        tipo = "else if"; AnalalisisSintactico(word, tipo); traducir(word, tipo); sintactica(word, tipo); cierres(word, tipo); Repetir(word, tipo);
 
                     }
                     else if (word == "=" |
                       word == "==" |
                        word == "<" |
                         word == ">" |
-                      word == "solo" |
+                      word == "==" |
                       word == "+" |
                       word == "," |
                       word == ":" |
                       word == "++" |
                       word == "-" |
-                      word == "|" |
+                      word == "||" |
                       word == "/" |
                        word == ";" |
                         word == "?" |
-                        word == "<<" |
-                        word == ">>" |
-                        word == "hacer" |
-                         word == "@" |
+                        word == "\"" |
+                        word == "'" |
+                        word == "while" |
+                         word == "string" |
                       word == "#"
 
                      )
@@ -342,12 +333,12 @@ namespace MeedCompy
                         if (word == "-") { tipo = "resta"; AnalalisisSintactico(word, tipo); traducir(word, tipo); sintactica(word, tipo); cierres(word, tipo); Repetir(word, tipo); escribir(word, tipo); }
                         if (word == "/") { tipo = "divicion"; AnalalisisSintactico(word, tipo); traducir(word, tipo); sintactica(word, tipo); cierres(word, tipo); Repetir(word, tipo); escribir(word, tipo); }
                         if (word == ";") { tipo = "cierre operacion"; AnalalisisSintactico(word, tipo); traducir(word, tipo); sintactica(word, tipo); cierres(word, tipo); Repetir(word, tipo); escribir(word, tipo); }
-                        if (word == "#") { tipo = "declaracion entero"; AnalalisisSintactico(word, tipo); traducir(word, tipo); sintactica(word, tipo); cierres(word, tipo); Repetir(word, tipo); escribir(word, tipo); }
-                        if (word == "@") { tipo = "declaracion cadena"; AnalalisisSintactico(word, tipo); traducir(word, tipo); sintactica(word, tipo); cierres(word, tipo); Repetir(word, tipo); escribir(word, tipo); }
-                        if (word == ":") { tipo = "dosdot"; AnalalisisSintactico(word, tipo); traducir(word, tipo); sintactica(word, tipo); cierres(word, tipo); Repetir(word, tipo); escribir(word, tipo); }
-                        if (word == "<<") { tipo = "apertura textoliteral"; AnalalisisSintactico(word, tipo); traducir(word, tipo); sintactica(word, tipo); cierres(word, tipo); Repetir(word, tipo); escribir(word, tipo); }
-                        if (word == ">>") { tipo = "cierre textoliteral"; AnalalisisSintactico(word, tipo); traducir(word, tipo); sintactica(word, tipo); cierres(word, tipo); Repetir(word, tipo); escribir(word, tipo); }
-                        if (word == "hacer") { tipo = "hacer"; AnalalisisSintactico(word, tipo); traducir(word, tipo); sintactica(word, tipo); cierres(word, tipo); Repetir(word, tipo); escribir(word, tipo); }
+                        if (word == "int") { tipo = "declaracion entero"; AnalalisisSintactico(word, tipo); traducir(word, tipo); sintactica(word, tipo); cierres(word, tipo); Repetir(word, tipo); escribir(word, tipo); }
+                        if (word == "string") { tipo = "declaracion cadena"; AnalalisisSintactico(word, tipo); traducir(word, tipo); sintactica(word, tipo); cierres(word, tipo); Repetir(word, tipo); escribir(word, tipo); }
+                        if (word == "){") { tipo = "dosdot"; AnalalisisSintactico(word, tipo); traducir(word, tipo); sintactica(word, tipo); cierres(word, tipo); Repetir(word, tipo); escribir(word, tipo); }
+                        if (word == "\"") { tipo = "apertura textoliteral"; AnalalisisSintactico(word, tipo); traducir(word, tipo); sintactica(word, tipo); cierres(word, tipo); Repetir(word, tipo); escribir(word, tipo); }
+                        if (word == "'") { tipo = "cierre textoliteral"; AnalalisisSintactico(word, tipo); traducir(word, tipo); sintactica(word, tipo); cierres(word, tipo); Repetir(word, tipo); escribir(word, tipo); }
+                        if (word == "while") { tipo = "while"; AnalalisisSintactico(word, tipo); traducir(word, tipo); sintactica(word, tipo); cierres(word, tipo); Repetir(word, tipo); escribir(word, tipo); }
                         if (word == "solo") { cierresolo += 1; tipo = "solo"; AnalalisisSintactico(word, tipo); traducir(word, tipo); sintactica(word, tipo); cierres(word, tipo); Repetir(word, tipo); escribir(word, tipo); }
                         if (word == "?") { tipo = "cierresi"; AnalalisisSintactico(word, tipo); traducir(word, tipo); sintactica(word, tipo); cierres(word, tipo); Repetir(word, tipo); escribir(word, tipo); }
 
@@ -363,7 +354,7 @@ namespace MeedCompy
 
 
 
-                        RIchTxLexico.Text = RIchTxLexico.Text + "comando de comentario: " + word + "\n";
+                        RIchTxLexico.Text = RIchTxLexico.Text + "Commented text " + word + "\n";
 
 
                     }
@@ -373,7 +364,7 @@ namespace MeedCompy
 
                         if (word != "};")
                         {
-                            RIchTxLexico.Text = RIchTxLexico.Text + "Signo de agrupación: " + word + "\n";
+                            RIchTxLexico.Text = RIchTxLexico.Text + "Group character " + word + "\n";
 
                             if (word == "(")
                             {
@@ -419,8 +410,8 @@ namespace MeedCompy
 
 
 
-                            RIchTxLexico.Text = RIchTxLexico.Text + "cierre de agrupación principal Amonos: " + word + "\n";
-                            tipo = "cierre amonos";
+                            RIchTxLexico.Text = RIchTxLexico.Text + "cierre de agrupación principal Main: " + word + "\n";
+                            tipo = "cierre Main";
                             AnalalisisSintactico(word, tipo);
                             traducir(word, tipo); sintactica(word, tipo); cierres(word, tipo); Repetir(word, tipo); escribir(word, tipo);
 
@@ -436,7 +427,7 @@ namespace MeedCompy
                             tipo = "valor numerico";
 
 
-                            RIchTxLexico.Text = RIchTxLexico.Text + "Valor constante: " + word + "\n";
+                            RIchTxLexico.Text = RIchTxLexico.Text + "Constant value " + word + "\n";
                             AnalalisisSintactico(word, tipo);
                             traducir(word, tipo); sintactica(word, tipo); cierres(word, tipo); Repetir(word, tipo);
                             escribir(word, tipo);
@@ -453,7 +444,7 @@ namespace MeedCompy
                             //... dos opciones o busco la forma de que funcione el analizar el word y sepa cuando hay palabras reservadas
                             //o solo hago que el compy se trate de dejar los espacios
 
-                            RIchTxLexico.Text = RIchTxLexico.Text + "Variable local: " + word + "\n";
+                            RIchTxLexico.Text = RIchTxLexico.Text + "Local variable " + word + "\n";
                             AnalalisisSintactico(word, tipo);
                             traducir(word , tipo); sintactica(word, tipo); cierres(word, tipo); Repetir(word, tipo);
                             escribir(word, tipo);
@@ -475,7 +466,7 @@ namespace MeedCompy
                     {
                         RIchTxLexico.Text += concatenaComentario + "\n";
                         // aqui termina el comentario
-                        RIchTxLexico.Text += "terninó el comentario\n";
+                        RIchTxLexico.Text += "Comment finished\n";
                         comentario = false;
 
                         string ne = concatenaComentario + "";
@@ -483,9 +474,6 @@ namespace MeedCompy
 
 
                     }
-
-
-
                     // int index = CodigoMeedCompyTxt.SelectionStart;
                     // int sta = (concatenaComentario.Length - concatenatext.Length)*-1;
                     //// MessageBox.Show("la resta de " + concatenaComentario.Length.ToString() + " Y " + concatenatext.Length.ToString() + " es: " + sta.ToString());
@@ -496,36 +484,11 @@ namespace MeedCompy
                     // CodigoMeedCompyTxt.Font = new Font(CodigoMeedCompyTxt.Font, FontStyle.Bold);
 
                     // CodigoMeedCompyTxt.SelectionColor = Color.White;
-
-
-
-
-
-
-
-
-
-
-
-
                 }
-
-
-
-
-
-
             }
             // aqui se daran los errores sintacticos
-
-
-
-
-
-
             //if (hayamonos == 1) { analisisSin.Text += "Funcion principal AMONOS encontrada\n"; }
             //if (hayamonos > 1) { richErroresSintac.Text += "Error solo puede haber un AMONOS\n"; }
-
             if (llavesnecesarias == 0)
             {
                 if (cierreamonos == false)
@@ -538,17 +501,17 @@ namespace MeedCompy
             {
                 richErroresSintac.Text += "No se encuentra la funcion principal AMONOS\n";
             }
-            if (llavesnecesariasSi == 0) { analisisSin.Text += "las llaves del si son correctas \n"; }
+            if (llavesnecesariasSi == 0) { analisisSin.Text += "The keys for the Main function are correct \n"; }
 
             if (parentesisnecesarios == 0)
             {
-                analisisSin.Text += "no se encontraron errores en las parentesis usados\n";
+                analisisSin.Text += "Couldn't find used parenthesis\n";
             }
             else
-            { richErroresSintac.Text += "verifica si usas los parentesis correctamente\n"; }
+            { richErroresSintac.Text += "Verify if parenthesis are correctly typed\n"; }
             if (variables == 0)
             {
-                analisisSin.Text += "se han utilizado un numero correcto de variables \n";
+                analisisSin.Text += "The amount of variables used is correct \n";
             }
             else if (variables == 1)
             {
@@ -598,38 +561,23 @@ namespace MeedCompy
             //MessageBox.Show("el valor de richsi es: " + richSi.Text);
             //if (richSi.Text != "si ( variable == variable2 ) hacer { ") { richErroresSintac.Text += "Error se detectaron errores en la estructura de <<si>>"; }
             if (cierresi > 0 ) {
-                richErroresSintac.Text += "se esperaba un <<?>> para el cierre de un <<si>>";
-
+                richErroresSintac.Text += "Expected <<?>> for an \"if\" statement";
             }
             if (cierresolo > 0) {
-                richErroresSintac.Text += "se esperaba un <<solo>> para el cierre de un <<repetir>>";
-
-
-
-
+                richErroresSintac.Text += "Expected \"do\" for a \"while\" statement";
             }
-
-
-
-
-
         }
         string palabraanteriorsi = "";
         int cierresi = 0;
         int cierresolo = 0;
         string palabraanteriorRe = "";
 
-
         void Repetir(string palabra, string tipo) {
-
-
-            if (palabra == "repetir") { analisisSin.Text += "Se ha detectado un <<repetir>>"; richRepetir.Text += "repetir "; palabraanteriorRe = palabra;}
+            if (palabra == "while") { analisisSin.Text += "Found a \"while\" statement"; richRepetir.Text += "while "; palabraanteriorRe = palabra;}
             else if (palabra == "(" && palabraanteriorRe == "repetir") {
                 palabraanteriorRe = "(";
                 richRepetir.Text += "( ";
-
             }
-
         }
 
         Boolean varecha = false;
@@ -637,89 +585,54 @@ namespace MeedCompy
         Boolean esperartexto = false;
         string conca = "";
 
-
         void escribir(string palabra, string tipo) {
 
 
-            if (palabra == "escribir" | esperartexto ==  true) {
+            if (palabra == "Console.WriteLine" | esperartexto ==  true) {
 
                 esperartexto = true;
                 if (tipo == "variable" | tipo == "valor numerico") {
                     conca += palabra + " ";
-
-
-
                 }
-                else if(palabra  == "|"){
-
+                else if(palabra  == ";"){
                     esperartexto = false;
-
                 }
                     palabraanterior =  palabra;
             }
-
-
-
-
         }
-
-        void pedir(string palabra  , string tipo) {
-
-
-
-
-
-        }
-
-
 
         void sintactica(string palabra, string tipo) {
-
-
-
-
             /// rehaciendo la sintactica, empezamos por el si //////
             /// 
             
-            if (palabra == "si" /*&& richSi.Text != null */){
+            if (palabra == "if" /*&& richSi.Text != null */){
 
                 if (richSi.Text == null)
                 {
-                    analisisSin.Text += "Se ha detectado un <<si>>"; richSi.Text += "si "; palabraanteriorsi = palabra;
-
-
+                    analisisSin.Text += "if statement has been found"; richSi.Text += "si "; palabraanteriorsi = palabra;
                 }
                 else {
-
-            
-                    if (richSi.Text == "si ( variable == variable2 ) hacer { ")
+                    if (richSi.Text == "if ( variable == variable2 ) { ")
                     {
                      
 
-                        analisisSin.Text += "Se detecto un estructura correcta de <<si>> esperando <<?>>";
-                        richSi.Text = "si ";
+                        analisisSin.Text += "Missing closing bracket on if statement";
+                        richSi.Text = "if ";
                     }
-                    analisisSin.Text += "Se ha detectado un <<si>>"; richSi.Text += "si "; palabraanteriorsi = palabra;
+                    analisisSin.Text += "if statement has been found"; richSi.Text += "if "; palabraanteriorsi = palabra;
 
                 }
-                richSi.Text = "si ";
+                richSi.Text = "if ";
                 si = true;
-     
-
-
             }
 
             if (si == true)
             {
-
                 if (palabra == "(")
                 {
-                    if (richSi.Text == "si ")
+                    if (richSi.Text == "if ")
                     {
-                 
-
                         richSi.Text += "( "; palabraanteriorsi = palabra;
-
                     }
                     //else
                     //{
@@ -730,36 +643,29 @@ namespace MeedCompy
                 }
                 else if (tipo == "variable")
                 {
-
                     if (richSi.Text == "si ( ")
                     {
-                      
                         varecha = true;
                         richSi.Text += "variable "; palabraanteriorsi = palabra;
                     }
                     else if (varecha == false)
                     {
-            
                         richErroresSintac.Text += "se ha detectado un error en un deberia haber un <<(>> antes de una variable \n";
-
-
                     }
-
-
                 }
-                else if (richSi.Text == "si ( variable " && palabra == "==")
+                else if (richSi.Text == "if ( variable " && palabra == "==")
                 {
                     richSi.Text += "== "; palabraanteriorsi = palabra;
                 }
-                else if (richSi.Text == "si ( variable == " && tipo == "variable")
+                else if (richSi.Text == "if ( variable == " && tipo == "variable")
                 {
                     richSi.Text += "variable2 "; palabraanteriorsi = palabra;
                 }
-                else if (richSi.Text == "si ( variable == variable2 " && palabra == ")")
+                else if (richSi.Text == "if ( variable == variable2 " && palabra == ")")
                 {
                     richSi.Text += ") "; palabraanteriorsi = palabra;
                 }
-                else if (richSi.Text == "si ( variable == variable2 ) " && palabra == "hacer")
+                else if (richSi.Text == "if ( variable == variable2 ) " && palabra == "hacer")
                 {
                     if (palabraanteriorsi == ")")
                     {
@@ -773,24 +679,18 @@ namespace MeedCompy
                 }
                 else if (richSi.Text == "si ( variable == variable2 ) hacer " && palabra == "{")
                 {
-
                     cierresi += 1;
                     richSi.Text += "{ ";
                     palabraanteriorsi = palabra;
                     analisisSin.Text = "se ha completado un <<si>> correctamente";
                     si = false;
                 }
-
-
             }
-
-
-
             if (tipo == "variable")
             {
                 tipoanterior = tipo;
                 variables += 1;
-                if (palabraanterior == "#")
+                if (palabraanterior == "int")
                 {
 
                     variables -= 1;
@@ -810,7 +710,7 @@ namespace MeedCompy
 
                 }
                 /////////////////////////
-                else if (palabraanterior == "@")
+                else if (palabraanterior == "string")
                 {
                     using (StreamWriter agregar = new StreamWriter("variableString.txt", true))
                     {
@@ -820,8 +720,6 @@ namespace MeedCompy
                     }
                     analisisSin.Text += "se ha declarado como candena la variable: " + palabra + " pero se espera su asignación\n";
                     asignarcadena += 1;
-
-
                 }
                 else
                 {
@@ -854,7 +752,7 @@ namespace MeedCompy
                     else if (cadena == true && entero == false)
                     {
 
-                        analisisSin.Text += "se encontro " + palabra + " como variable de tipo CADENA\n";
+                        analisisSin.Text += palabra + " has been found as a string\n";
 
                     }
                     else if (cadena == false && entero == true)
@@ -865,46 +763,21 @@ namespace MeedCompy
                     }
                     //else { richErroresSintac.Text += "Error la variable " + palabra + " no se ha declarado\n"; }
                 }
-
-
-
-
                 palabraanterior = "variable";
-
-
             }
-
-
-
-
         }
-
         void cierres(string palabra, string tipo) {
 
             if (palabra == "?" ) {
                 cierresi -= 1;
                 analisisSin.Text += "se ha cerrado la estructura de un if";
-
             }
             if (palabra == "solo")
             {
                 cierresolo -= 1;
                 analisisSin.Text += "se ha cerrado la estructura de un repetir";
-
             }
-
-
         }
-
-
-
-
-
-
-
-
-
-
         private void ThreadSafe(Action callback, Form form)
         {
             BackgroundWorker worker = new BackgroundWorker();
@@ -917,21 +790,17 @@ namespace MeedCompy
             };
             worker.RunWorkerAsync();
         }
-
-
-
         void pintar()
         {
-
             ThreadSafe(() =>
             {
                 string modelo = "";
-                string[] palabras = { "si", "solo", "se", "repetir", "@", "#", "amonos", "hacer", "solo", "//", "MeedCompy" , "MeedMusic", "Meedot",
-                "sino", "escribir", "Meed", "kevin del cid", "<<" , ">>","|","<",">"};
+                string[] palabras = { "if", "solo", "se", "for", "string", "#", "Main", "do", "solo", "//", "MeedCompy" , "MeedMusic", "Meedot",
+                "else if", "Console.WriteLine", "Meed", "Klk", "\"", "'" , "&&","||","<",">"};
 
                 foreach (var a in palabras)
                 {
-                    modelo += a + "|";
+                    modelo += a + ";";
                 }
                 Regex r = new Regex(modelo);
                 int index = CodigoMeedCompyTxt.SelectionStart;
@@ -945,43 +814,23 @@ namespace MeedCompy
                 CodigoMeedCompyTxt.SelectionColor = Color.White;
 
             }, this);
-
-
-
         }
-
-
-
-
-
         private void ActualizarAnalisis_Tick(object sender, EventArgs e)
         {
             Thread pai = new Thread(pintar);
             pai.Start();
             // richTextBox1.Text = CodigoMeedCompyTxt.Text; 
-
-
         }
         void MandarPalabraReservada(string pReservada)
         {
-
-
-
-            RIchTxLexico.Text = RIchTxLexico.Text + "Palabra reservada: " + pReservada + "\n";
-
-
+            RIchTxLexico.Text = RIchTxLexico.Text + "Reserved word " + pReservada + "\n";
         }
         void MandarSigno(string sReservada)
         {
-
-            RIchTxLexico.Text = RIchTxLexico.Text + "Signo operador o delimitador: " + sReservada + "\n";
-
-
+            RIchTxLexico.Text = RIchTxLexico.Text + "Operator or delimiter   " + sReservada + "\n";
         }
-
         private void PictureBox2_Click(object sender, EventArgs e)
         {
-
             string newtext = "";
             newtext = RIchTxLexico.Text;
             RIchTxLexico.Text = "";
@@ -989,13 +838,8 @@ namespace MeedCompy
             string newtexterro = "";
             newtexterro = richErroresSintac.Text;
             richErroresSintac.Text = "";
-
-
             analiLex();
             // ErroresSintacticos();
-
-
-
         }
 
         int llavesnecesarias = 0;
@@ -1069,14 +913,11 @@ namespace MeedCompy
         int e = 0;
         void AnalalisisSintactico(string palabra, string tipo)
         {
-          
             if (esperavarconsint == true) {
                 // entrando aqui sabemos que tenemos una estrucctura de comparacion pero solo podemos comparar con un valor del mismo 
                 // tipo 
                 if (palabraanterior != "==" )
                 {
-
-
                    // richErroresSintac.Text += "no se encontró el dato esperado ERRROR\n";
                 }
                 else {
@@ -1086,9 +927,7 @@ namespace MeedCompy
                         // si existe esta variable alli saabremos que todo esta semantica y sintacticamente correcto
                         string cadenarnteras = varnumasig.Text;
 
-
                         char[] delimitadoresChar = { ' ', ',' };
-
 
                         string concatenatext = "";
 
@@ -1113,31 +952,21 @@ namespace MeedCompy
 
 
                         } else if (tipo == "valor numerico") {
-
                         richsemantica.Text += "los valores coinciden en tipo\n";
-
                     }
-
-
                 }
 
 
             }
-
-
-
             cierreamonos = false;
             if (palabra == "};")
             {
-
                 cierreamonos = true;
 
             }
             if (asignarcadena > 0 && palabra != "<<") {
 
                 richErroresSintac.Text += "no se esta asignando un valor a la variable @\n";         
-
-
             }
 
             if (esperandocadena > 0) {
@@ -1146,7 +975,7 @@ namespace MeedCompy
                 {
 
                     esperandocadena -= 1;
-                    varcadasig.Text += variablestring +": " + concatenacadena + ",";
+                    varcadasig.Text += variablestring +"= " + concatenacadena + ";";
                     richsemantica.Text += "a la variable de tipo @ se le han asignado datos correctos\n";
 
 
@@ -1191,10 +1020,6 @@ namespace MeedCompy
                     erroresSemanticos.Text += "Error verifica si has asignado correctamente tu variable de tipo # entero\n";
                 }
 
-
-
-
-
             }
 
             if (tipo == "palabra reservada")
@@ -1202,7 +1027,7 @@ namespace MeedCompy
 
 
 
-                if (palabra == "amonos")
+                if (palabra == "Main")
                 {
                     hayamonos += 1;
                     //if (hayamonos >= 2) {
@@ -1216,7 +1041,7 @@ namespace MeedCompy
 
                 }
 
-                if (palabra == "si")
+                if (palabra == "if")
                 {
                     if (exsi == 0)
                     {
@@ -1269,7 +1094,7 @@ namespace MeedCompy
 
 
                 }
-                else if (palabra == "si" && exsi != 0 && llavesnecesarias == 0)
+                else if (palabra == "if" && exsi != 0 && llavesnecesarias == 0)
                 {
                     palabraanterior = palabra;
                     llavesnecesarias = 2;
@@ -1292,16 +1117,16 @@ namespace MeedCompy
                     //hacer = 1;
                     //exsi += 1;
                 }
-                if (palabra == "hacer")
+                if (palabra == "do")
                 {
                     palabraanterior = palabra;
                 }
-                if (palabra == "solo")
+                if (palabra == "==")
                 {
                     solo--;
                     palabraanterior = palabra;
                 }
-                if (palabra == "repetir")
+                if (palabra == "while")
                 {
                     // repetir : variable numerovar , variable numerovar , variable numerovar :
                     // utilizadas
@@ -1327,21 +1152,21 @@ namespace MeedCompy
             else if (repetir == true)
             {
 
-                if (tipo == "variable" && palabra == ":") // aqui unicamente reconocemos los 2 puntos
+                if (tipo == "variable" && palabra == "=") // aqui unicamente reconocemos los 2 puntos
                 {
 
-                    if (palabraanterior == "repetir")
+                    if (palabraanterior == "while")
                     { // aqui tenemos los dos puntos iniciables y restamos uno 
                         dospuntos -= 1;
                         tipoanterior = tipo;
 
                      
                     }
-                    else if (palabra == ":" && palabraanterior == "++")
+                    else if (palabra == "=" && palabraanterior == "++")
                     {
 
 
-                        analisisSin.Text = "se termino la expresion de <<repetir>> con << : >> se espera un <<solo>>";
+                        analisisSin.Text = "The expression <<while>> was terminated with << = >> this character <<==>> was expected";
                         solo++;
 
 
@@ -1349,13 +1174,13 @@ namespace MeedCompy
                     else if (palabraanterior == "++")
                     {
                         // aqui tenemos los dos puntos que cierran la expresion
-                        analisisSin.Text += "se han agregado : para iniciar el <<repetir>> \n";
+                        analisisSin.Text += "The expression = was added to start <<while>> \n";
                         dospuntos -= 1;
                         tipoanterior = tipo;
                     }
                     else
                     {
-                        richErroresSintac.Text += "Error, verifica donde colocas los << : >>\n";
+                        richErroresSintac.Text += "Error, verify the assign symbol << = >>\n";
                     }
 
                 }
@@ -1493,7 +1318,7 @@ namespace MeedCompy
                 if (tipo == "resta") { restas -= 1; palabraanterior = "-"; }
                 if (tipo == "division") { divisiones -= 1; palabraanterior = "/"; }
                 if (tipo == "cierre operacion") { cierreoperaciones -= 1; palabraanterior = ";"; }
-                if (tipo == "declaracion cadena") { declaracioncadenas -= 1; palabraanterior = "@"; }
+                if (tipo == "declaracion cadena") { declaracioncadenas -= 1; palabraanterior = "string"; }
                 if (tipo == "apertura textoliteral") { aperturatextoliterales -= 1; palabraanterior = "<<"; esperandocadena += 1; asignarcadena -= 1; }
                 if (tipo == "cierre textoliteral") { cierretextoliterales -= 1; palabraanterior = ">>"; }
                 if (tipo == "valor numerico") { valornumericos -= 1; palabraanterior = palabra;
@@ -1506,7 +1331,7 @@ namespace MeedCompy
                 {
                     tipoanterior = tipo;
                     variables += 1;
-                    if (palabraanterior == "#")
+                    if (palabraanterior == "int")
                     {
 
                        variables -= 1; 
@@ -1520,19 +1345,19 @@ namespace MeedCompy
                             varnumasig.Text += palabra;
                         }
 
-                        analisisSin.Text = "se ha declarado como entero la variable: " + palabra + " \n";
+                        analisisSin.Text = "The variable was declared as integer " + palabra + " \n";
                         palabraanterior = palabra;
                         esperandovalor += 1;
 
                     }
                     /////////////////////////
-                    else if (palabraanterior == "@") {
+                    else if (palabraanterior == "string") {
                         using (StreamWriter agregar = new StreamWriter("variableString.txt", true)) {
 
                             agregar.Write(palabra); richcadenas.Text += palabra + ","; agregar.Write(",");
                             variablestring = palabra;
                         }
-                        analisisSin.Text += "se ha declarado como candena la variable: " + palabra + " pero se espera su asignación\n";
+                        analisisSin.Text += "The variable was declared as string " + palabra + " but there is no assigned value\n";
                         asignarcadena += 1;
 
                        
@@ -1557,22 +1382,22 @@ namespace MeedCompy
                         if (cadena == true && entero == true)
                         {
 
-                            richErroresSintac.Text += "Error, la variable " + palabra + " se repite como cadena y como numero";
+                            richErroresSintac.Text += "Error, the variable " + palabra + " is being used as string and number";
 
                         }
                         else if (cadena == true && entero == false)
                         {
 
-                            analisisSin.Text += "se encontro " + palabra + " como variable de tipo CADENA\n";
+                            analisisSin.Text += palabra + " has been found as a string\n";
 
                         }
                         else if (cadena == false && entero == true)
                         {
 
-                            analisisSin.Text += "se encontro " + palabra + " como variable de tipo ENTERO\n";
+                            analisisSin.Text += palabra + " has been found as an integer\n";
 
                         }
-                        else { richErroresSintac.Text += "Error la variable " + palabra + " no se ha declarado\n"; }
+                        else { richErroresSintac.Text += "Error the following variable " + palabra + " hasn't been declared\n"; }
                     }
 
 
@@ -1677,52 +1502,44 @@ namespace MeedCompy
                 ///
                     if (palabra == "<") { CCCode.Text += "<"; }
                     if (palabra == ">") { CCCode.Text += ">"; }
-                    if (palabra == "sino") { CCCode.Text += "else "; }
-                    if (palabra == "|") { CCCode.Text += "\" ; "; }
-                    if (palabra == "escribir") { CCCode.Text += "\ncout << \" "; }
-                    if (palabra == "@") { CCCode.Text += "\nstring ";  }
-                    if (palabra == "?") { CCCode.Text += "\n}"; }
-                    if (palabra == "#") { CCCode.Text += "\nint "; dec = true; }
+                    if (palabra == "else") { CCCode.Text += "else "; }
+                    //if (palabra == ";") { CCCode.Text += "\" ; "; }
+                    if (palabra == "Console.WriteLine") { CCCode.Text += "\ncout << "; }
+                    if (palabra == "string") { CCCode.Text += "\nstring ";  }
+                    if (palabra == "}") { CCCode.Text += "\n}"; }
+                    //if(palabra.Contains("(\"")) { CCCode.Text += palabra.Replace("(\"", ""); }
+                    if (palabra == "int") { CCCode.Text += " "; dec = true; }
                     if (tipo == "separador") {CCCode.Text += ";"; }
-                    if (palabra == "amonos") { CCCode.Text += "#include <iostream>\nusing namespace std;\nint main()\n"; }
+                    if (palabra == "Main") { CCCode.Text += "#include <iostream>\nusing namespace std;\nint main()\n"; }
                     if (palabra == "};") { CCCode.Text += "\nreturn 0 ;\n}"; }
                     if (palabra == "{") { CCCode.Text += palabra + "\n"; }
-                    if (palabra == "}") { CCCode.Text += palabra + "\n"; }
+                    if (palabra == "}") { CCCode.Text += "\n"; }
                     if (tipo == "dosdot") {CCCode.Text += "){\n";}
-                    if (palabra == "=") { CCCode.Text += " = "; }
+                    if (palabra == "=") { CCCode.Text += " "; }
                     if (palabra == "solo") { CCCode.Text += "}\n"; }
                     if (palabra == "==" ) { CCCode.Text += " == "; }
                     if (palabra == "++") { CCCode.Text += "++ "; }
                 if (palabra == "+") { CCCode.Text += "+ "; }
                 if (palabra == "("){ CCCode.Text += "( "; }
                     if (palabra == ")") { CCCode.Text += " )"; }
-                    if (palabra == "repetir") { CCCode.Text += "for";  }
-                    if (palabra == "si") { CCCode.Text += "if"; }
+                    if (palabra == "for") { CCCode.Text += "for";  }
+                    if (palabra == "if") { CCCode.Text += "if"; }
                     if (tipo == "valor numerico") { if (dec == true) { CCCode.Text += " = " + palabra + ";\n "; dec = false; } else { CCCode.Text += palabra; }}
-                    if (palabra == "<<") { CCCode.Text += " = \" "; }
-                    if (palabra == ">>") { CCCode.Text += "\";\n"; }
+                    if (palabra == "=") { CCCode.Text += " = "; }
+                    if (palabra == ";") { CCCode.Text += "\"; \n"; }
                     if (tipo == "variable") { CCCode.Text += ""+palabra+" "; }
-                    if (tipo =="=") { CCCode.Text += " " + palabra + " "; }
-                }
+                //if (tipo =="=") { CCCode.Text += " " + palabra + " "; }
+                if (palabra == "'") { CCCode.Text += ""; }
+                //if (palabra == "'") { CCCode.Text += ""; }
+                //if (palabra == "\"") { CCCode.Text += "" + palabra + ""; }
+            }
                 else
                 {
                     ////////////////////  aqui sabemos que se incio un comentario /////////////
                     //commmm = true;
                     //if (palabra == "///") { commmm = false; }
-
-
-
-
-
                 }
-
-            
         }
-
-
-
-
-
         private void PictureBox8_Click(object sender, EventArgs e)
         {
             CCCode.Text = "";
@@ -1746,10 +1563,6 @@ namespace MeedCompy
             Boolean foract = false;
             string[] words = CodigoMeedCompyTxt.Text.Split(delimitadoresChar);
             int ciers = 0;
-
-
-
-
             foreach (string word in words)
             {
                 wo = word;
@@ -1765,29 +1578,21 @@ namespace MeedCompy
 
 
                     }
-                    if (siact == true && commmm == false && word == "repetir") { CCCode.Text += "for"; foract = false; }
+                    if (siact == true && commmm == false && word == "for") { CCCode.Text += "for"; foract = false; }
                     if (word == "solo" && commmm == false) { CCCode.Text += "}"; foract = false; }
                     if (word == "," && commmm == false) { CCCode.Text += ";"; }
-                    if (foract == true && commmm == false) { wo = "repetir"; }
-                    if (siact == true && commmm == false) { wo = "si"; }
-                    if (amoact == true && commmm == false) { wo = "amonos"; }
-
-
-
+                    if (foract == true && commmm == false) { wo = "for"; }
+                    if (siact == true && commmm == false) { wo = "if"; }
+                    if (amoact == true && commmm == false) { wo = "Main"; }
                     if (word == "{" && commmm == false ) { CCCode.Text += wo; }
 
                     if (word == "}" && commmm == false)
                     {
                         CCCode.Text += "\n } 2";
-                        
                     }
-
-
                     if (word == "};" && commmm == false)
                     {
                         CCCode.Text += "\n\n return 0 ; \n }";
-
-
                         cier = true;
 
                     }
@@ -1798,33 +1603,30 @@ namespace MeedCompy
                     }
                     switch (wo)
                     {
-
-                        case "amonos":
+                        case "Main":
                             amoact = true;
-                            if (word == "amonos" | amoc == true && cier == false && commmm == false)
+                            if (word == "Main" | amoc == true && cier == false && commmm == false)
                             {
-
                                 amoc = true;
                                
                                     CCCode.Text += "#include <iostream>\n using namespace std;\nint main()\n";
                                     amoc = false;
                                     amoact = false;
-                                
                             }
 
                             ///////////////////////////////////////// encabezado y cierre concluidos ///////////
 
                             break;
-                        case "si":
+                        case "if":
 
 
-                            if (word == "hacer" && commmm == false) { }
+                            if (word == "while" && commmm == false) { }
                             else
-                            if (word == "si" && commmm == false) { CCCode.Text += "\nif"; siact = true; }
+                            if (word == "if" && commmm == false) { CCCode.Text += "\nif"; siact = true; }
                             else
                             if (word == "(" && commmm == false) { CCCode.Text += " ( "; }
                             else
-                            if (word != "amonos" && commmm == false | word != "}" | word != "{" | word != "};" | word != "(" | word != ")" | word != "solo" | word != "hacer" | word != "si" | word != "se" | word != "repetir" | word != "," | word != "<<" | word != ">>" | word != "" | word != ":" | word != "//" | word != "///" | word != "++" | word != "==" && cier == false) { CCCode.Text += word; if (palabraanterior == "==") { siact = false; } }
+                            if (word != "Main" && commmm == false | word != "}" | word != "{" | word != "};" | word != "(" | word != ")" | word != "solo" | word != "hacer" | word != "si" | word != "se" | word != "repetir" | word != "," | word != "<<" | word != ">>" | word != "" | word != ":" | word != "//" | word != "///" | word != "++" | word != "==" && cier == false) { CCCode.Text += word; if (palabraanterior == "==") { siact = false; } }
                             else
                             if (word == "==" && commmm == false) { CCCode.Text += " == "; }
                             else
@@ -1835,24 +1637,12 @@ namespace MeedCompy
                             
                             if (word == "se" && commmm == false)
                             {
-
                                 CCCode.Text += " ";
-
-
                             }
-
-
-
-
-
-
                             break;
+                        case "for":
 
-
-
-                        case "repetir":
-
-                            if (word == "repetir" && commmm == false) { CCCode.Text += "for"; foract = true;
+                            if (word == "for" && commmm == false) { CCCode.Text += "for"; foract = true;
 
                             }
                             else
@@ -1866,70 +1656,38 @@ namespace MeedCompy
                                 }
                                 else
                                 {
-
                                     ci = true;
                                     CCCode.Text += "(";
                                 }
                             }
                             else
-                                if (word != "amonos" && commmm == false | word != "}" | word != "{" | word != "};" | word != "(" | word != ")" | word != "solo" | word != "hacer" | word != "si" | word != "se" | word != "repetir" | word != "," | word != "<<" | word != ">>" | word != "" | word != ":" | word != "//" | word != "///" | word != "++" | word != "==")
+                                if (word != "Main" && commmm == false | word != "}" | word != "{" | word != "};" | word != "(" | word != ")" | word != "solo" | word != "hacer" | word != "si" | word != "se" | word != "repetir" | word != "," | word != "<<" | word != ">>" | word != "" | word != ":" | word != "//" | word != "///" | word != "++" | word != "==")
                             {
-
-
                                 if (int.TryParse(word, out numero) && commmm == false)
                                 {
-
-
-
                                     CCCode.Text += "=" + word;
                                 }
                                 else
                                 {
-
-
                                     if (word == ",") { }
                                     else
                                     {
-
                                         CCCode.Text += word;
-
-
-
                                     }
-
-
-
                                 }
-
-
-
                             }
                             else
                                 if (word == "==") { CCCode.Text += "=="; }
                             else
                             if (word == "++") { CCCode.Text += "++"; ci = true; }
-
-
-
-
-
                             break;
-
-
-
-
                     }
-
-
-
-
-
-                    if (word == "#" | vae == true && cier == false && commmm == false)
+                    if (word == "int" | vae == true && cier == false && commmm == false)
                     {
 
 
 
-                        if (word == "#" && cier == false && commmm == false) { CCCode.Text += "int"; vae = true; }
+                        if (word == "int" && cier == false && commmm == false) { CCCode.Text += "int"; vae = true; }
                         else
 
 
@@ -1942,18 +1700,18 @@ namespace MeedCompy
                         }
                         else
 
-                            if (word != "amonos" |
+                            if (word != "Main" |
                                 word != "}" |
                                 word != "{" |
                                 word != "};" |
                                 word != "(" |
                                 word != ")" |
-                                word != "solo" |
-                                word != "hacer" |
+                                word != "==" |
+                                word != "while" |
                                 word != "," |
-                                  word != "si" |
-                                word != "sino" |
-                                word != "repetir" |
+                                  word != "if" |
+                                word != "else if" |
+                                word != "for" |
                                 word != "" |
                                 word != ":" |
                                 word != "<<" |
@@ -1968,39 +1726,21 @@ namespace MeedCompy
                             vaest = false;
                             vaes = false;
                             concate = "";
-
-
                         }
-                        
-
                     }
 
-                    if (word == "@" | vaes == true && cier == false && commmm == false)
+                    if (word == "string" | vaes == true && cier == false && commmm == false)
                     {
-
-
-
-                        if (word == "@" && cier == false && commmm == false) { CCCode.Text += "string"; vaes = true; }
-                        else
-
-
-
-                        if (word == "<<" | vaest == true && cier == false && commmm == false)
+                        if (word == "string" && cier == false && commmm == false) { CCCode.Text += "string"; vaes = true; }
+                        else if (word == "\"" || word == "'"| vaest == true && cier == false && commmm == false)
                         {
-
                             vaest = true;
-                            if (word == "<<" && cier == false && commmm == false)
+                            if (word == "\"" && cier == false && commmm == false)
                             {
-
-
-
                                 CCCode.Text += " \"";
-
                             }
-                            else if (word == ">>" && cier == false && commmm == false)
+                            else if (word == "'" && cier == false && commmm == false)
                             {
-
-
                                 CCCode.Text += concate + "\";\n";
                                 vaest = false;
                                 vaes = false;
@@ -2008,79 +1748,39 @@ namespace MeedCompy
                             }
                             else
                             {
-
                                 concate += " " + word;
-
-
-
                             }
-
-
-
-
                             // se esta iniciando la cadena de texto
-
-
-
                         }
                         else
 
 
-                            if (word != "amonos" |
+                            if (word != "Main" |
                                 word != "}" |
                                 word != "{" |
                                 word != "};" |
                                 word != "(" |
                                 word != ")" |
-                                word != "solo" |
+                                word != "==" |
                                 word != "hacer" |
-                                  word != "si" |
+                                  word != "if" |
                                 word != "se" |
-                                word != "repetir" |
+                                word != "while" |
                                 word != "," |
-                                word != "<<" |
-                                word != ">>" |
+                                word != "\"" |
+                                word != "'" |
                                 word != "" |
-                                word != ":" |
+                                word != "=" |
                                 word != "//" |
                                 word != "///" |
                                 word != "++" |
                                 word != "==" && cier == false && commmm == false)
                         {
                             CCCode.Text += " " + word + " = ";
-
-
-
-
                         }
-
-
-
-
-
-
-
-
                     }
                     ////////////////////// declaracion de variables concluida /////////////////////
                     ///
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 } else { commmm = true;
                     if (word == "///") { commmm = false; }
             }
@@ -2124,8 +1824,6 @@ namespace MeedCompy
             {
                 StreamReader leer = new StreamReader(abrir.FileName);
                 CodigoMeedCompyTxt.Text = leer.ReadToEnd();
-
-
                 leer.Close();
             }
         }

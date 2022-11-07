@@ -1,0 +1,6 @@
+Main {
+int a = 1;
+string x = "1";
+Console.WriteLine ("Hola");
+
+};

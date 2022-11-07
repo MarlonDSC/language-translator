@@ -123,5 +123,20 @@
   <ItemGroup>
     <None Include="Resources\txt2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\play.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\debug.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_fluent_play_24_filled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_fluent_folder_open_24_filled %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_fluent_save_24_filled.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -8,13 +8,13 @@ using System.Windows.Forms;
 
 namespace MeedCompy
 {
-    public partial class Form1 : Form
+    public partial class VSCode : Form
     {
         public int xClick = 0, yClick = 0;
-        public Form1()
+        public VSCode()
         {
             InitializeComponent();
-           // Colorearletras.Enabled = true;
+            Colorearletras.Enabled = false;
             // ActualizarAnalisis.Enabled = true;
         }
 
@@ -2176,14 +2176,13 @@ namespace MeedCompy
 
         }
 
-        private void AnalisisSintactico(object sender, EventArgs e)
+        private void label11_Click(object sender, EventArgs e)
         {
 
+        }
 
-
-
-
-
+        private void label1_Click(object sender, EventArgs e)
+        {
 
         }
     }
